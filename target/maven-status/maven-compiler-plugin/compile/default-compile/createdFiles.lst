@@ -1,0 +1,3 @@
+com\smithas\academy\models\Message.class
+com\smithas\academy\models\Course.class
+com\smithas\academy\controllers\HomeController.class
