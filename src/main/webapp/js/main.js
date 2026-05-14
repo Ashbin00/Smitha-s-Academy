@@ -2,6 +2,17 @@
 // MAIN JAVASCRIPT
 // ===========================
 
+// Make toggleMobileMenu globally accessible
+window.toggleMobileMenu = function() {
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const navMenu = document.getElementById('navMenu');
+
+    if (hamburgerBtn && navMenu) {
+        hamburgerBtn.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    }
+};
+
 document.addEventListener('DOMContentLoaded', function() {
     initializeNavigation();
     initializeScrollEffects();
