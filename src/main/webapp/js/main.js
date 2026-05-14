@@ -15,28 +15,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function initializeNavigation() {
     const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('section');
 
-    // Smooth scrolling for nav links
+    // Smooth scrolling only for pure anchor links (e.g. href="#about")
+    // Page links (e.g. href="about.jsp") are allowed to navigate normally
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
-            
-            if (targetSection) {
-                // Remove active class from all links
-                navLinks.forEach(l => l.classList.remove('active'));
-                // Add active class to clicked link
-                this.classList.add('active');
-                
-                // Scroll to section
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+            const href = this.getAttribute('href');
+
+            // Only intercept pure anchor links that start with '#'
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const targetId = href.substring(1);
+                const targetSection = document.getElementById(targetId);
+
+                if (targetSection) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
             }
+            // Otherwise let the browser navigate to the .jsp page normally
         });
     });
 
-    // Update active nav link on scroll
+    // Update active nav link on scroll (only relevant on single-page view)
     window.addEventListener('scroll', updateActiveNavLink);
 }
 
@@ -155,42 +157,11 @@ function showNotification(message, type) {
 // ===========================
 
 function initializeButtons() {
-    // Enroll Now button
-    const enrollBtn = document.querySelector('.enroll-btn');
-    if (enrollBtn) {
-        enrollBtn.addEventListener('click', function() {
-            const contactSection = document.getElementById('contact');
-            if (contactSection) {
-                contactSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    }
+    // Enroll Now button - let the onclick="location.href='register.jsp'" handle navigation
+    // Do NOT add a conflicting click listener here.
 
-    // Batch registration buttons
-    const batchBtns = document.querySelectorAll('.batch-btn');
-    batchBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const batchName = this.parentElement.querySelector('h3').textContent;
-            const courseSelect = document.getElementById('course');
-            const contactSection = document.getElementById('contact');
-            
-            // Set course based on batch
-            const courseMap = {
-                'IELTS': 'ielts',
-                'GERMAN': 'german',
-                'OET': 'oet'
-            };
-            
-            for (const [key, value] of Object.entries(courseMap)) {
-                if (batchName.includes(key)) {
-                    courseSelect.value = value;
-                    break;
-                }
-            }
-            
-            contactSection.scrollIntoView({ behavior: 'smooth' });
-        });
-    });
+    // Batch registration buttons - let onclick handle navigation to register.jsp
+    // No override needed since they already have onclick="location.href='register.jsp'"
 }
 
 // ===========================

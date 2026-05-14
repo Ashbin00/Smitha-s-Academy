@@ -25,12 +25,12 @@
                     </div>
                     <div class="nav-menu">
                         <ul>
-                            <li><a href="index.jsp" class="nav-link active">Home</a></li>
-                            <li><a href="about.jsp" class="nav-link">About Us</a></li>
-                            <li><a href="courses.jsp" class="nav-link">Courses</a></li>
-                            <li><a href="batches.jsp" class="nav-link">Batches</a></li>
-                            <li><a href="success-stories.jsp" class="nav-link">Success Stories</a></li>
-                            <li><a href="contact.jsp" class="nav-link">Contact</a></li>
+                            <li><a href="javascript:void(0)" onclick="location.href='${pageContext.request.contextPath}/index.jsp'" class="nav-link active">Home</a></li>
+                            <li><a href="javascript:void(0)" onclick="location.href='${pageContext.request.contextPath}/about.jsp'" class="nav-link">About Us</a></li>
+                            <li><a href="javascript:void(0)" onclick="location.href='${pageContext.request.contextPath}/courses.jsp'" class="nav-link">Courses</a></li>
+                            <li><a href="javascript:void(0)" onclick="location.href='${pageContext.request.contextPath}/batches.jsp'" class="nav-link">Batches</a></li>
+                            <li><a href="javascript:void(0)" onclick="location.href='${pageContext.request.contextPath}/success-stories.jsp'" class="nav-link">Success Stories</a></li>
+                            <li><a href="javascript:void(0)" onclick="location.href='${pageContext.request.contextPath}/contact.jsp'" class="nav-link">Contact</a></li>
                         </ul>
                     </div>
                     <button class="enroll-btn" onclick="location.href='register.jsp'">✉ Enroll Now</button>
@@ -243,21 +243,21 @@
                         <p class="batch-date">Starting: June 2026</p>
                         <p class="batch-schedule">Schedule: Mon, Wed, Fri - 6:00 PM to 8:00 PM</p>
                         <p class="batch-duration">Duration: 12 weeks</p>
-                        <button class="batch-btn">Register Now</button>
+                        <button class="batch-btn" onclick="location.href='register.jsp'">Register Now</button>
                     </div>
                     <div class="batch-card">
                         <h3>GERMAN - Batch 1</h3>
                         <p class="batch-date">Starting: June 2026</p>
                         <p class="batch-schedule">Schedule: Tue, Thu, Sat - 7:00 PM to 9:00 PM</p>
                         <p class="batch-duration">Duration: 16 weeks</p>
-                        <button class="batch-btn">Register Now</button>
+                        <button class="batch-btn" onclick="location.href='register.jsp'">Register Now</button>
                     </div>
                     <div class="batch-card">
                         <h3>OET - Batch 1</h3>
                         <p class="batch-date">Starting: June 2026</p>
                         <p class="batch-schedule">Schedule: Daily - 5:00 PM to 7:00 PM</p>
                         <p class="batch-duration">Duration: 8 weeks</p>
-                        <button class="batch-btn">Register Now</button>
+                        <button class="batch-btn" onclick="location.href='register.jsp'">Register Now</button>
                     </div>
                 </div>
             </div>
@@ -413,7 +413,7 @@
             </div>
         </footer>
 
-        <script src="${pageContext.request.contextPath}/js/main.js"></script>
+        <script src="${pageContext.request.contextPath}/js/main.js?v=2"></script>
     </body>
 
     </html>

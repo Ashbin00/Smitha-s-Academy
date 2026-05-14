@@ -116,12 +116,12 @@
                 </div>
                 <div class="nav-menu">
                     <ul>
-                        <li><a href="index.jsp" class="nav-link">Home</a></li>
-                        <li><a href="about.jsp" class="nav-link">About Us</a></li>
-                        <li><a href="courses.jsp" class="nav-link">Courses</a></li>
-                        <li><a href="batches.jsp" class="nav-link">Batches</a></li>
-                        <li><a href="success-stories.jsp" class="nav-link">Success Stories</a></li>
-                        <li><a href="contact.jsp" class="nav-link">Contact</a></li>
+                        <li><a href="${pageContext.request.contextPath}/index.jsp" class="nav-link">Home</a></li>
+                        <li><a href="${pageContext.request.contextPath}/about.jsp" class="nav-link">About Us</a></li>
+                        <li><a href="${pageContext.request.contextPath}/courses.jsp" class="nav-link">Courses</a></li>
+                        <li><a href="${pageContext.request.contextPath}/batches.jsp" class="nav-link">Batches</a></li>
+                        <li><a href="${pageContext.request.contextPath}/success-stories.jsp" class="nav-link">Success Stories</a></li>
+                        <li><a href="${pageContext.request.contextPath}/contact.jsp" class="nav-link">Contact</a></li>
                     </ul>
                 </div>
                 <button class="enroll-btn" onclick="location.href='register.jsp'">✉ Enroll Now</button>
