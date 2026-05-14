@@ -144,31 +144,54 @@
 
     /* Navigation */
     .navbar {
-        padding: 10px 0;
+        padding: 12px 0;
     }
 
     .logo h1 {
         font-size: 18px;
     }
 
+    /* Show hamburger button on mobile */
+    .hamburger-btn {
+        display: flex;
+    }
+
     .nav-menu {
         display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--primary-color);
+        padding: 20px;
+        width: 100%;
+        z-index: 99;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
     }
 
     .nav-menu.active {
         display: block;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: var(--primary-color);
-        padding: 15px;
-        width: 100%;
     }
 
     .nav-menu ul {
         flex-direction: column;
-        gap: 10px;
+        gap: 15px;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-link::after {
+        display: none;
+    }
+
+    .enroll-btn {
+        width: 100%;
+        margin-top: 15px;
     }
 
     /* Hero Section */

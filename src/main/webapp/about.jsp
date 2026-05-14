@@ -19,7 +19,13 @@
                         <h1>Smitha's Academy</h1>
                     </div>
                 </div>
-                <div class="nav-menu">
+                <!-- Hamburger Menu Button -->
+                <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="nav-menu" id="navMenu">
                     <ul>
                         <li><a href="${pageContext.request.contextPath}/index.jsp" class="nav-link">Home</a></li>
                         <li><a href="${pageContext.request.contextPath}/about.jsp" class="nav-link active">About Us</a></li>

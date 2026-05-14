@@ -7,7 +7,59 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeScrollEffects();
     initializeFormHandling();
     initializeButtons();
+    initializeMobileMenu();
 });
+
+// ===========================
+// MOBILE MENU FUNCTIONALITY
+// ===========================
+
+function initializeMobileMenu() {
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const navMenu = document.getElementById('navMenu');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // Toggle menu when hamburger is clicked
+    if (hamburgerBtn) {
+        hamburgerBtn.addEventListener('click', function() {
+            hamburgerBtn.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    }
+
+    // Close menu when a nav link is clicked
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (hamburgerBtn) {
+                hamburgerBtn.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (hamburgerBtn && navMenu) {
+            const isClickInsideMenu = navMenu.contains(event.target);
+            const isClickOnHamburger = hamburgerBtn.contains(event.target);
+
+            if (!isClickInsideMenu && !isClickOnHamburger && navMenu.classList.contains('active')) {
+                hamburgerBtn.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        }
+    });
+}
+
+function toggleMobileMenu() {
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const navMenu = document.getElementById('navMenu');
+
+    if (hamburgerBtn && navMenu) {
+        hamburgerBtn.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    }
+}
 
 // ===========================
 // NAVIGATION FUNCTIONALITY
