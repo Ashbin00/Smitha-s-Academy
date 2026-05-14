@@ -1,4 +1,4 @@
-# Use official Maven + Java 8 image to build and run
+# Use Maven with Java 8 to build and run
 FROM maven:3.8.6-openjdk-8
 
 # Set working directory
@@ -9,10 +9,10 @@ COPY pom.xml .
 COPY src ./src
 
 # Build the project (skip tests for faster build)
-RUN mvn clean install -DskipTests
+RUN mvn clean package -DskipTests -q
 
-# Expose the port Railway provides
+# Expose port (Railway will set $PORT env var)
 EXPOSE 8080
 
-# Start Tomcat using the Maven plugin
-CMD mvn tomcat7:run -Dtomcat.port=${PORT:-8080} -Dtomcat.address=0.0.0.0
+# Run Tomcat on port 8080 (Railway requires binding to 0.0.0.0)
+CMD ["mvn", "tomcat7:run"]
